@@ -20,16 +20,16 @@
 
 .tile {
     width: 6%;
-    border: solid 0.5px;
+    /* border: solid 0.5px; */
 }
 
-.tile:nth-child(2n) {
+/* .tile:nth-child(2n) {
     background-color: rgb(252, 180, 255);
 }
 
 .tile:nth-child(2n+1) {
     background-color: rgb(174, 253, 223);
-}
+} */
 
 .tile::after {
     content: '';
