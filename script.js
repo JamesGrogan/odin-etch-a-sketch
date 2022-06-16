@@ -49,10 +49,18 @@ function destroyGrid() {
     removeAllChildNodes(mainContainer);
 }
 
+function promptNewSize() {
+    let size;
+    do {
+        size = prompt('Please enter the size of the new grid (max 100 and must be a number)');
+    } while (isNaN(size) || (size > 100))
+    return size;
+}
+
 resetButton = document.querySelector('#reset-button');
 console.log(resetButton);
 resetButton.addEventListener('click', () => {
-    const size = prompt('Please enter the size of the new grid');
+    const size = promptNewSize();
     destroyGrid();
     generateGrid(size);
     attachEventHandlers();
