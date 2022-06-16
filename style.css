@@ -36,3 +36,7 @@
     display: block;
     padding-top: 100%;
 }
+
+.hovered {
+    background-color: pink;
+}

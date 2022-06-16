@@ -11,3 +11,11 @@ for (let row = 1; row <= 16; row++) {
         gridRow.append(div);
     }
 }
+
+const tiles = document.querySelectorAll('.tile');
+
+for (let i = 0; i < tiles.length; i ++) {
+    tiles[i].addEventListener('mouseover', () => {
+        tiles[i].classList.add('hovered')
+    });
+}
