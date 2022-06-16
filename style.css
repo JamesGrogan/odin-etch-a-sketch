@@ -19,7 +19,6 @@ body {
 .gridRowContainer {
     display: flex;
     justify-content: space-evenly;
-    height: 6%;
 }
 
 .gridRowContainer::before {
@@ -29,7 +28,6 @@ body {
 }
 
 .tile {
-    width: 6%;
     border: solid 0.5px;
 }
 
