@@ -19,3 +19,10 @@ for (let i = 0; i < tiles.length; i ++) {
         tiles[i].classList.add('hovered')
     });
 }
+
+resetButton = document.querySelector('#reset-button');
+console.log(resetButton);
+resetButton.addEventListener('click', () => {
+    response = prompt('Please enter the size of the new grid');
+    console.log(response);
+})
