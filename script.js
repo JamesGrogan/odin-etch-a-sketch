@@ -34,14 +34,18 @@ function attachEventHandlers() {
     const tiles = document.querySelectorAll('.tile');
     for (let i = 0; i < tiles.length; i ++) {
         tiles[i].addEventListener('mouseover', () => {
-            if (tiles[i].classList.contains('colored')) {
-                currentColor = tiles[i].style.backgroundColor;
-                tiles[i].style.backgroundColor = darkenColor(currentColor);
-            } else {
-                tiles[i].style.backgroundColor = `rgb(${generateRandomRGBValue()})`
-                tiles[i].classList.add('colored');
-            }
+            recolorTile(tiles, i);
     });
+    }
+}
+
+function recolorTile(tiles, i) {
+    if (tiles[i].classList.contains('colored')) {
+        currentColor = tiles[i].style.backgroundColor;
+        tiles[i].style.backgroundColor = darkenColor(currentColor);
+    } else {
+        tiles[i].style.backgroundColor = `rgb(${generateRandomRGBValue()})`;
+        tiles[i].classList.add('colored');
     }
 }
 
