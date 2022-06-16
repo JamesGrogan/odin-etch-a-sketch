@@ -1,16 +1,38 @@
 #main-container {
     display: flex;
-    flex-flow: row wrap;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    width: 700px;
+    height: 700px;
 }
 
-.gridRow {
+.gridRowContainer {
     display: flex;
+    justify-content: space-evenly;
+    height: 6%;
+}
+
+.gridRowContainer::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
 }
 
 .tile {
-    display: flex;
-    border: 1px solid;
-    padding: 5px;
+    width: 6%;
+    border: solid 0.5px;
+}
+
+.tile:nth-child(2n) {
+    background-color: rgb(252, 180, 255);
+}
+
+.tile:nth-child(2n+1) {
+    background-color: rgb(174, 253, 223);
+}
+
+.tile::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
 }
