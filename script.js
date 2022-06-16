@@ -34,7 +34,7 @@ function attachEventHandlers() {
     const tiles = document.querySelectorAll('.tile');
     for (let i = 0; i < tiles.length; i ++) {
         tiles[i].addEventListener('mouseover', () => {
-        tiles[i].classList.add('hovered')
+        tiles[i].style.backgroundColor = `rgb(${generateRandomRGBValue()})`;
     });
     }
 }
@@ -58,10 +58,17 @@ function promptNewSize() {
 }
 
 resetButton = document.querySelector('#reset-button');
-console.log(resetButton);
 resetButton.addEventListener('click', () => {
     const size = promptNewSize();
     destroyGrid();
     generateGrid(size);
     attachEventHandlers();
 })
+
+function generateRandomRGBValue() {
+    const red = Math.floor(Math.random() * (255 + 1));
+    const green = Math.floor(Math.random() * (255 + 1));
+    const blue = Math.floor(Math.random() * (255 + 1));
+    console.log(`${red},${green},${blue}`);
+    return (`${red},${green},${blue}`);
+}
