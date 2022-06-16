@@ -34,7 +34,13 @@ function attachEventHandlers() {
     const tiles = document.querySelectorAll('.tile');
     for (let i = 0; i < tiles.length; i ++) {
         tiles[i].addEventListener('mouseover', () => {
-        tiles[i].style.backgroundColor = `rgb(${generateRandomRGBValue()})`;
+            if (tiles[i].classList.contains('colored')) {
+                currentColor = tiles[i].style.backgroundColor;
+                tiles[i].style.backgroundColor = darkenColor(currentColor);
+            } else {
+                tiles[i].style.backgroundColor = `rgb(${generateRandomRGBValue()})`
+                tiles[i].classList.add('colored');
+            }
     });
     }
 }
@@ -69,6 +75,15 @@ function generateRandomRGBValue() {
     const red = Math.floor(Math.random() * (255 + 1));
     const green = Math.floor(Math.random() * (255 + 1));
     const blue = Math.floor(Math.random() * (255 + 1));
-    console.log(`${red},${green},${blue}`);
+    //console.log(`${red},${green},${blue}`);
     return (`${red},${green},${blue}`);
+}
+
+function darkenColor(color) {
+    let vals = color.substring(color.indexOf('(') +1, color.length -1).split(', ');
+    let rgbString = `${vals[0]},${vals[1]},${vals[2]}`;
+    let rgbArray = rgbString.split(",");
+    let newVals = rgbArray.map((num) => num * 0.83);
+    let newColor = newVals.join(",");
+    return `rgb(${newColor})`;
 }
