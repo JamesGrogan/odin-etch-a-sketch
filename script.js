@@ -33,19 +33,20 @@ function generateGrid(size) {
 function attachEventHandlers() {
     const tiles = document.querySelectorAll('.tile');
     for (let i = 0; i < tiles.length; i ++) {
-        tiles[i].addEventListener('mouseover', () => {
-            recolorTile(tiles, i);
+        tile = tiles[i];
+        tile.addEventListener('mouseover', (e) => {
+            recolorTile(e.target);
     });
     }
 }
 
-function recolorTile(tiles, i) {
-    if (tiles[i].classList.contains('colored')) {
-        currentColor = tiles[i].style.backgroundColor;
-        tiles[i].style.backgroundColor = darkenColor(currentColor);
+function recolorTile(tile) {
+    if (tile.classList.contains('colored')) {
+        currentColor = tile.style.backgroundColor;
+        tile.style.backgroundColor = darkenColor(currentColor);
     } else {
-        tiles[i].style.backgroundColor = `rgb(${generateRandomRGBValue()})`;
-        tiles[i].classList.add('colored');
+        tile.style.backgroundColor = `rgb(${generateRandomRGBValue()})`;
+        tile.classList.add('colored');
     }
 }
 
